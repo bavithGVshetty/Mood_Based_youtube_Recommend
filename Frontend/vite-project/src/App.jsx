@@ -1,44 +1,66 @@
-import { useState } from "react"
+import { useState } from "react";
 import axios from "axios";
-import "./App.css"
-// import "./A"
-function App(){
+import "./App.css";
 
-    const[text,setText]=useState("");
-  const[video,setvideos]=useState([]);
+function App() {
 
-const getVideos=async()=>{
+  const [text, setText] = useState("");
+  const [video, setVideos] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  const res=await axios.post(
-    "https://mood-based-youtube-recommend-3.onrender.com/mood",
-    {text:text}
-  );
-setvideos(res.data);
-}
+  const getVideos = async () => {
 
-return (
-  <div className="app">
-    <h1>Mood Deployed Based Recommender</h1>
+    try {
+      setLoading(true);
 
-    <input placeholder="How Is your mood ?" 
-    onChange={(e)=>setText(e.target.value)}/>
+      const res = await axios.post(
+        "https://mood-based-youtube-recommend-3.onrender.com/mood",
+        { text: text }
+      );
 
-    <button onClick={getVideos}>
-      Predict
-    </button>
+      setVideos(res.data);
+    } catch (err) {
+      console.log(err);
+      alert("Error fetching videos");
+    }
 
-    <div className="videos">
-{ video.map(v=>(
-      <iframe width="640" 
-      key={v.id.videoId}
-      height="360" 
-      src={`https://www.youtube.com/embed/${v.id.videoId}`} 
-      title="video"/>
-))}
+    setLoading(false);
+  };
+
+  return (
+    <div className="app">
+
+      <h1>🎵 Mood Based YouTube Recommender</h1>
+
+      <div className="search-box">
+
+        <input
+          placeholder="How is your mood today?"
+          onChange={(e) => setText(e.target.value)}
+        />
+
+        <button onClick={getVideos}>
+          Predict Mood
+        </button>
+
       </div>
 
-  </div>
-)
+      {loading && <div className="loader"></div>}
+
+      <div className="videos">
+
+        {video.map((v) => (
+          <iframe
+            key={v.id.videoId}
+            src={`https://www.youtube.com/embed/${v.id.videoId}`}
+            title="video"
+          />
+        ))}
+
+      </div>
+
+    </div>
+  );
 }
 
 export default App;
