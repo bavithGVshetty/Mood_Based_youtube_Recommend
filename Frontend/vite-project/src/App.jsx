@@ -9,7 +9,7 @@ function App(){
 const getVideos=async()=>{
 
   const res=await axios.post(
-    "https://mood-api.onrender.com/mood",
+    "https://mood-based-youtube-recommend-3.onrender.com/mood",
     {text:text}
   );
 setvideos(res.data);
