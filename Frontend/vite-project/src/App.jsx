@@ -9,7 +9,7 @@ function App(){
 const getVideos=async()=>{
 
   const res=await axios.post(
-    "http://localhost:5000/mood",
+    "https://mood-api.onrender.com/mood",
     {text:text}
   );
 setvideos(res.data);
