@@ -17,7 +17,7 @@ setvideos(res.data);
 
 return (
   <div className="app">
-    <h1>Mood Based Recommender</h1>
+    <h1>Mood Deployed Based Recommender</h1>
 
     <input placeholder="How Is your mood ?" 
     onChange={(e)=>setText(e.target.value)}/>
