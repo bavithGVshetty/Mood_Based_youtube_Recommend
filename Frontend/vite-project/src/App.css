@@ -1,9 +1,71 @@
-input{
-  width: 100%;
-  padding:8px;
-  margin:  10px;
+/* Global Page Style */
+body {
+margin: 0;
+font-family: "Segoe UI", Arial, sans-serif;
+background: linear-gradient(135deg, #4facfe, #00f2fe);
+min-height: 100vh;
 }
 
-body{
-  background: bisque;
+/* Main App Container */
+.app {
+text-align: center;
+padding: 40px;
+}
+
+/* Title */
+.app h1 {
+color: white;
+font-size: 36px;
+margin-bottom: 30px;
+}
+
+/* Input Box */
+input {
+padding: 12px 16px;
+width: 300px;
+border-radius: 8px;
+border: none;
+outline: none;
+font-size: 16px;
+margin-right: 10px;
+}
+
+/* Button */
+button {
+padding: 12px 22px;
+border-radius: 8px;
+border: none;
+background-color: #ff7a18;
+color: white;
+font-size: 16px;
+cursor: pointer;
+transition: 0.3s;
+}
+
+button:hover {
+background-color: #ff4b2b;
+transform: scale(1.05);
+}
+
+/* Video Grid */
+.videos {
+margin-top: 40px;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+gap: 25px;
+padding: 20px;
+}
+
+/* Video Card */
+.videos iframe {
+width: 100%;
+height: 220px;
+border-radius: 12px;
+border: none;
+box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+transition: 0.3s;
+}
+
+.videos iframe:hover {
+transform: scale(1.03);
 }
