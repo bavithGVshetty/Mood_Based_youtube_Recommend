@@ -1,71 +1,111 @@
-/* Global Page Style */
-body {
-margin: 0;
-font-family: "Segoe UI", Arial, sans-serif;
-background: linear-gradient(135deg, #4facfe, #00f2fe);
-min-height: 100vh;
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+min-height:100vh;
 }
 
-/* Main App Container */
-.app {
-text-align: center;
-padding: 40px;
+/* Main container */
+
+.app{
+text-align:center;
+padding:40px;
 }
 
 /* Title */
-.app h1 {
-color: white;
-font-size: 36px;
-margin-bottom: 30px;
+
+h1{
+font-size:38px;
+margin-bottom:30px;
+letter-spacing:1px;
 }
 
-/* Input Box */
-input {
-padding: 12px 16px;
-width: 300px;
-border-radius: 8px;
-border: none;
-outline: none;
-font-size: 16px;
-margin-right: 10px;
+/* Search box */
+
+.search-box{
+display:flex;
+justify-content:center;
+gap:10px;
+margin-bottom:30px;
+flex-wrap:wrap;
+}
+
+/* Input */
+
+input{
+padding:14px 18px;
+width:300px;
+border-radius:12px;
+border:none;
+outline:none;
+font-size:16px;
+background:rgba(255,255,255,0.15);
+color:white;
+backdrop-filter:blur(10px);
+}
+
+input::placeholder{
+color:#ddd;
 }
 
 /* Button */
-button {
-padding: 12px 22px;
-border-radius: 8px;
-border: none;
-background-color: #ff7a18;
-color: white;
-font-size: 16px;
-cursor: pointer;
-transition: 0.3s;
+
+button{
+padding:14px 22px;
+border:none;
+border-radius:12px;
+background:linear-gradient(45deg,#ff512f,#dd2476);
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
 }
 
-button:hover {
-background-color: #ff4b2b;
-transform: scale(1.05);
+button:hover{
+transform:scale(1.08);
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
 }
 
-/* Video Grid */
-.videos {
-margin-top: 40px;
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-gap: 25px;
-padding: 20px;
+/* Loader */
+
+.loader{
+margin:30px auto;
+border:6px solid #f3f3f3;
+border-top:6px solid #ff512f;
+border-radius:50%;
+width:50px;
+height:50px;
+animation:spin 1s linear infinite;
 }
 
-/* Video Card */
-.videos iframe {
-width: 100%;
-height: 220px;
-border-radius: 12px;
-border: none;
-box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-transition: 0.3s;
+@keyframes spin{
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
 }
 
-.videos iframe:hover {
-transform: scale(1.03);
+/* Video grid */
+
+.videos{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:25px;
+padding:20px;
 }
+
+/* Video card */
+
+iframe{
+width:100%;
+height:220px;
+border-radius:14px;
+border:none;
+box-shadow:0 12px 30px rgba(0,0,0,0.5);
+transition:0.4s;
+}
+
+/* Hover effect */
+
+iframe:hover{
+transform:scale(1.05);
+box-sh
